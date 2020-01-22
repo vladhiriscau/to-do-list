@@ -1,5 +1,6 @@
 package org.fasttrackit;
 
+import org.fasttrackit.domain.Task;
 import org.fasttrackit.persistance.TaskRepository;
 import org.fasttrackit.transfer.CreateTaskRequest;
 import org.fasttrackit.transfer.UpdateTaskRequest;
@@ -7,6 +8,7 @@ import org.fasttrackit.transfer.UpdateTaskRequest;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * Hello world!
@@ -24,7 +26,12 @@ public class App
 
                 taskRepository.createTask(request);
 
-     //   UpdateTaskRequest request = new UpdateTaskRequest();
+
+
+        List<Task> tasks = taskRepository.getTasks();
+        System.out.println(tasks);
+
+        //   UpdateTaskRequest request = new UpdateTaskRequest();
         //        request.setDone(true);
         //
         //        taskRepository.upateTask(1, request);
